@@ -42,11 +42,17 @@
             this.email_textbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.exec_button = new System.Windows.Forms.Button();
+            this.cln_button = new System.Windows.Forms.Button();
+            this.deserial = new System.Windows.Forms.Button();
+            this.serial_button = new System.Windows.Forms.Button();
+            this.Task_name_textbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // start_button
             // 
-            this.start_button.Location = new System.Drawing.Point(661, 156);
+            this.start_button.Location = new System.Drawing.Point(27, 250);
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(123, 52);
             this.start_button.TabIndex = 0;
@@ -75,7 +81,6 @@
             this.condition_combobox.Name = "condition_combobox";
             this.condition_combobox.Size = new System.Drawing.Size(121, 21);
             this.condition_combobox.TabIndex = 2;
-            this.condition_combobox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -142,7 +147,7 @@
             // 
             // email_textbox
             // 
-            this.email_textbox.Location = new System.Drawing.Point(486, 110);
+            this.email_textbox.Location = new System.Drawing.Point(462, 48);
             this.email_textbox.Name = "email_textbox";
             this.email_textbox.Size = new System.Drawing.Size(175, 20);
             this.email_textbox.TabIndex = 10;
@@ -150,7 +155,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(486, 91);
+            this.label6.Location = new System.Drawing.Point(462, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 13);
             this.label6.TabIndex = 11;
@@ -166,11 +171,68 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "to wykonaj to:";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(465, 97);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(334, 108);
+            this.listBox1.TabIndex = 13;
+            // 
+            // exec_button
+            // 
+            this.exec_button.Location = new System.Drawing.Point(465, 228);
+            this.exec_button.Name = "exec_button";
+            this.exec_button.Size = new System.Drawing.Size(105, 54);
+            this.exec_button.TabIndex = 14;
+            this.exec_button.Text = "Wykonaj";
+            this.exec_button.UseVisualStyleBackColor = true;
+            // 
+            // cln_button
+            // 
+            this.cln_button.Location = new System.Drawing.Point(595, 228);
+            this.cln_button.Name = "cln_button";
+            this.cln_button.Size = new System.Drawing.Size(96, 54);
+            this.cln_button.TabIndex = 15;
+            this.cln_button.Text = "Czyść";
+            this.cln_button.UseVisualStyleBackColor = true;
+            // 
+            // deserial
+            // 
+            this.deserial.Location = new System.Drawing.Point(716, 228);
+            this.deserial.Name = "deserial";
+            this.deserial.Size = new System.Drawing.Size(75, 25);
+            this.deserial.TabIndex = 16;
+            this.deserial.Text = "Deserialize";
+            this.deserial.UseVisualStyleBackColor = true;
+            // 
+            // serial_button
+            // 
+            this.serial_button.Location = new System.Drawing.Point(716, 259);
+            this.serial_button.Name = "serial_button";
+            this.serial_button.Size = new System.Drawing.Size(75, 23);
+            this.serial_button.TabIndex = 17;
+            this.serial_button.Text = "Serialize";
+            this.serial_button.UseVisualStyleBackColor = true;
+            // 
+            // Task_name_textbox
+            // 
+            this.Task_name_textbox.Location = new System.Drawing.Point(201, 261);
+            this.Task_name_textbox.Name = "Task_name_textbox";
+            this.Task_name_textbox.Size = new System.Drawing.Size(100, 20);
+            this.Task_name_textbox.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 220);
+            this.ClientSize = new System.Drawing.Size(811, 314);
+            this.Controls.Add(this.Task_name_textbox);
+            this.Controls.Add(this.serial_button);
+            this.Controls.Add(this.deserial);
+            this.Controls.Add(this.cln_button);
+            this.Controls.Add(this.exec_button);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.email_textbox);
@@ -207,6 +269,12 @@
         private System.Windows.Forms.TextBox email_textbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button exec_button;
+        private System.Windows.Forms.Button cln_button;
+        private System.Windows.Forms.Button deserial;
+        private System.Windows.Forms.Button serial_button;
+        private System.Windows.Forms.TextBox Task_name_textbox;
     }
 }
 
