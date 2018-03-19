@@ -56,7 +56,7 @@
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(123, 52);
             this.start_button.TabIndex = 0;
-            this.start_button.Text = "Start";
+            this.start_button.Text = "Dodaj zadanie";
             this.start_button.UseVisualStyleBackColor = true;
             this.start_button.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -174,9 +174,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(465, 97);
+            this.listBox1.Location = new System.Drawing.Point(405, 97);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(334, 108);
+            this.listBox1.Size = new System.Drawing.Size(394, 108);
             this.listBox1.TabIndex = 13;
             // 
             // exec_button
@@ -187,6 +187,7 @@
             this.exec_button.TabIndex = 14;
             this.exec_button.Text = "Wykonaj";
             this.exec_button.UseVisualStyleBackColor = true;
+            this.exec_button.Click += new System.EventHandler(this.exec_button_Click);
             // 
             // cln_button
             // 
@@ -196,6 +197,7 @@
             this.cln_button.TabIndex = 15;
             this.cln_button.Text = "Czyść";
             this.cln_button.UseVisualStyleBackColor = true;
+            this.cln_button.Click += new System.EventHandler(this.cln_button_Click);
             // 
             // deserial
             // 

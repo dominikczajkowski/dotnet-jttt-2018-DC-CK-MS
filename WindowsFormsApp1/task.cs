@@ -10,6 +10,7 @@ namespace Task
         string word = "";
         string url = "";
         string task_name = "";
+        private string image = "image.jpg";
         
         public task(string Email, string Word, string Url, string Task)
         {
@@ -35,7 +36,7 @@ namespace Task
                     cond = true;
                     using (WebClient client = new WebClient())
                     {
-                        client.DownloadFile(new Uri(file_link), "image.jpg");
+                        client.DownloadFile(new Uri(file_link), image);
                     }
                 }
             
@@ -84,7 +85,7 @@ namespace Task
         }
         public override string ToString()
         {
-            return task_name.ToString();
+            return "Task name:"+task_name+" Url:"+url+" Email:"+email+" Szukane słowo:"+word;
         }
     }
     }
