@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Net;
-using EASendMail;
+using System.Net.Mail;
 namespace Task
 {
     class task
@@ -43,37 +43,21 @@ namespace Task
 
             if (cond == true)
             {
-                SmtpMail oMail = new SmtpMail("TryIt");
-                SmtpClient oSmtp = new SmtpClient();
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                // Your gmail email address
-                oMail.From = "cssender44@gmail.com";
+                mail.From = new MailAddress("cssender44@gmail.com");
+                mail.To.Add(email);
+                mail.Subject = "Nowy obrazek";
+                mail.Body = "Nowy obrazek w załączniku";
+                mail.Attachments.Add(new Attachment(image));
 
-                // Set recipient email address
-                oMail.To = email;
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("cssender44@gmail.com", "dotnet44");
+                SmtpServer.EnableSsl = true;
 
-                // Set email subject
-                oMail.Subject = "Nowy obrazek";
-                oMail.AddAttachment("image.jpg");
+                SmtpServer.Send(mail);
 
-                // Set email body
-                oMail.TextBody = "Nowy obrazek w załączniku";
-                // Gmail SMTP server address
-                SmtpServer oServer = new SmtpServer("smtp.gmail.com");
-
-                // Set 465 port
-                oServer.Port = 465;
-
-                // detect SSL/TLS automatically
-                oServer.ConnectType = SmtpConnectType.ConnectSSLAuto;
-
-                // Gmail user authentication
-                // For example: your email is "gmailid@gmail.com", then the user should be the same
-                oServer.User = "cssender44@gmail.com";
-                oServer.Password = "dotnet44";
-
-
-                oSmtp.SendMail(oServer, oMail);
 
                 MessageBox.Show("Prawdopodobnie wysłano :)");
 
