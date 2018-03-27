@@ -25,7 +25,7 @@ namespace Task
         public void GetAndSend()
         {
             bool cond = false;
-            Debug.Print("fuck you");
+            
 
             var hs = new DownloadNodesSample.HtmlSample(url);
                 var file_link = hs.Find(word);
@@ -37,7 +37,7 @@ namespace Task
                 else
                 {
                     cond = true;
-                Debug.Print("fuck you");
+               
                     using (WebClient client = new WebClient())
                     {
                         client.DownloadFile(new Uri(file_link), image);
