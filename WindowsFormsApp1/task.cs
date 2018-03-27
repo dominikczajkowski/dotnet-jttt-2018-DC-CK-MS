@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Diagnostics;
 namespace Task
 {
-    //[Serializable()]
+    [Serializable()]
     class task
     {
         string email = "";
