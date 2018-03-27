@@ -2,16 +2,18 @@
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
+using System.Diagnostics;
 namespace Task
 {
+    //[Serializable()]
     class task
     {
         string email = "";
         string word = "";
         string url = "";
         string task_name = "";
-        private string image = "image.jpg";
-        
+        private readonly string image = "image.jpg";
+
         public task(string Email, string Word, string Url, string Task)
         {
             email = Email;
@@ -19,12 +21,13 @@ namespace Task
             url = Url;
             task_name = Task;
         }
-
+        //public task() { }
         public void GetAndSend()
         {
             bool cond = false;
+            Debug.Print("fuck you");
 
-                var hs = new DownloadNodesSample.HtmlSample(url);
+            var hs = new DownloadNodesSample.HtmlSample(url);
                 var file_link = hs.Find(word);
                 if (file_link == "")
                 {
@@ -34,6 +37,7 @@ namespace Task
                 else
                 {
                     cond = true;
+                Debug.Print("fuck you");
                     using (WebClient client = new WebClient())
                     {
                         client.DownloadFile(new Uri(file_link), image);

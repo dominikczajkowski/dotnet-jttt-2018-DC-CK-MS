@@ -164,6 +164,7 @@
             this.deserial.TabIndex = 16;
             this.deserial.Text = "Deserialize";
             this.deserial.UseVisualStyleBackColor = true;
+            this.deserial.Click += new System.EventHandler(this.deserial_Click);
             // 
             // serial_button
             // 
@@ -173,6 +174,7 @@
             this.serial_button.TabIndex = 17;
             this.serial_button.Text = "Serialize";
             this.serial_button.UseVisualStyleBackColor = true;
+            this.serial_button.Click += new System.EventHandler(this.serial_button_Click);
             // 
             // Task_name_textbox
             // 

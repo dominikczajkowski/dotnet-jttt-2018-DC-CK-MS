@@ -7,8 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HtmlAgilityPack;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -26,7 +26,13 @@ namespace WindowsFormsApp1
         {
             
             listBox1.DataSource = tasks;
-            tasks.Add(new Task.task(email_textbox.Text, word_textbox.Text, url_textbox.Text, Task_name_textbox.Text));
+            //var t = new Task.task();
+            //t.email = email_textbox.Text;
+            //t.word = word_textbox.Text;
+            //t.url = url_textbox.Text;
+            //t.task_name = Task_name_textbox.Text;
+
+            tasks.Add(new Task.task(email_textbox.Text,word_textbox.Text,url_textbox.Text,Task_name_textbox.Text));
            // tasks.ElementAt(0).GetAndSend();
         }
 
@@ -41,6 +47,28 @@ namespace WindowsFormsApp1
         private void cln_button_Click(object sender, EventArgs e)
         {
             tasks.Clear();
+
+        }
+
+        private void serial_button_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("storage"))
+            {
+                File.Delete("storage");
+            }
+            FileStream stream = File.Create("storage");
+            var formatter = new BinaryFormatter();
+            formatter.Serialize(stream, tasks);
+            stream.Close();
+        }
+
+        private void deserial_Click(object sender, EventArgs e)
+        {
+            var stream = File.OpenRead("storage");
+            var formatter = new BinaryFormatter();
+            tasks = (BindingList<Task.task>)formatter.Deserialize(stream);
+            stream.Close();
+            listBox1.DataSource = tasks;
         }
     }
 }
