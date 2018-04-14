@@ -3,15 +3,16 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
 using System.Diagnostics;
+using System.Data.Entity;
 namespace Task
 {
     [Serializable()]
     class task
     {
-        string email = "";
-        string word = "";
-        string url = "";
-        string task_name = "";
+        public string email { get; set; }
+        public string word  { get; set; }
+        public string url { get; set; }
+        public string Id { get; set; }
         private readonly string image = "image.jpg";
 
         public task(string Email, string Word, string Url, string Task)
@@ -19,7 +20,7 @@ namespace Task
             email = Email;
             word = Word;
             url = Url;
-            task_name = Task;
+            Id = Task;
         }
         //public task() { }
         public void GetAndSend()
@@ -73,8 +74,12 @@ namespace Task
         }
         public override string ToString()
         {
-            return "Task name:"+task_name+" Url:"+url+" Email:"+email+" Szukane słowo:"+word;
+            return "Task name:"+Id+" Url:"+url+" Email:"+email+" Szukane słowo:"+word;
         }
+    }
+    class TaskDbContext : DbContext
+    {
+        public DbSet<task> Tasks { get; set; }
     }
     }
 

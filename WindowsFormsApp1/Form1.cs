@@ -26,14 +26,18 @@ namespace WindowsFormsApp1
         {
             
             listBox1.DataSource = tasks;
-            //var t = new Task.task();
-            //t.email = email_textbox.Text;
-            //t.word = word_textbox.Text;
-            //t.url = url_textbox.Text;
-            //t.task_name = Task_name_textbox.Text;
+            using (var db = new Task.TaskDbContext())
+            {
+                db.Tasks.Add(new Task.task(email_textbox.Text, word_textbox.Text, url_textbox.Text, Task_name_textbox.Text));
+                db.SaveChanges();
+                foreach( var t in db.Tasks)
+                {
+                    tasks.Add(new Task.task(t.email, t.word, t.url, t.Id));
+                }
+            }
 
-            tasks.Add(new Task.task(email_textbox.Text,word_textbox.Text,url_textbox.Text,Task_name_textbox.Text));
-           // tasks.ElementAt(0).GetAndSend();
+            //  tasks.Add(new Task.task(email_textbox.Text, word_textbox.Text, url_textbox.Text, Task_name_textbox.Text));
+
         }
 
         private void exec_button_Click(object sender, EventArgs e)
