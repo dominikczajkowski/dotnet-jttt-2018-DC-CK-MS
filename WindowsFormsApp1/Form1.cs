@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using HtmlAgilityPack;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using OpenWeatherMap;
+using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
@@ -73,6 +75,24 @@ namespace WindowsFormsApp1
             tasks = (BindingList<Task.task>)formatter.Deserialize(stream);
             stream.Close();
             listBox1.DataSource = tasks;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void weatherbtt_Click(object sender, EventArgs e)
+        {
+                        string key = "88bfb0ad9a9e936ff6a817e9729086cd";
+            OpenWeatherMap.Standard.Forecast forecast = new OpenWeatherMap.Standard.Forecast();
+             OpenWeatherMap.Standard.WeatherData dataCity = null;
+            System.Threading.Tasks.Task getWeatherCity = System.Threading.Tasks.Task.Run(async () => { dataCity = await forecast.GetWeatherDataByCityNameAsync(key, cityInput.Text,"pl", OpenWeatherMap.Standard.WeatherUnits.metric); });
+                         getWeatherCity.Wait();
+  
+            MessageBox.Show("Temp:"+dataCity.main.temp.ToString()+" Ciśnienie:"+dataCity.main.pressure.ToString()+"hPa "+"Niebo:"+dataCity.weather[0].description);
+
+            
         }
     }
 }
